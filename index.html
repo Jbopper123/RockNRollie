@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RockNRollie | Indoor Stroller Rocking Band</title>
+  <style>
+    :root {
+      --navy: #071b33;
+      --cream: #fbf8f2;
+      --cream2: #f4efe7;
+      --sand: #eadfcc;
+      --text: #0b1e35;
+      --muted: #596879;
+      --line: #e7e2da;
+      --gold: #d7b98f;
+      --shadow: 0 10px 28px rgba(7, 27, 51, 0.10);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .nav {
+      height: 66px;
+      padding: 0 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fffdf8;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      color: var(--navy);
+    }
+
+    .logo sup { font-size: 9px; margin-left: 2px; vertical-align: super; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 10px;
+      background: var(--navy);
+      color: #fff;
+      padding: 14px 28px;
+      font-size: 15px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .btn.small {
+      padding: 13px 25px;
+      border-radius: 999px;
+      font-size: 14px;
+    }
+
+    .btn.gold {
+      background: var(--gold);
+      color: var(--navy);
+      border-radius: 9px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 43% 57%;
+      min-height: 560px;
+      background: linear-gradient(90deg, #fffaf3 0%, #fffaf3 43%, #eee4d5 43%, #eee4d5 100%);
+    }
+
+    .hero-copy {
+      padding: 66px 46px 44px 58px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .eyebrow {
+      color: #3f7d45;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      margin: 0 0 24px;
+      color: var(--navy);
+      font-size: clamp(42px, 5vw, 62px);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      font-weight: 900;
+      max-width: 560px;
+    }
+
+    .hero p {
+      margin: 0 0 22px;
+      max-width: 520px;
+      color: #25374d;
+      font-size: 18px;
+      line-height: 1.45;
+      font-weight: 500;
+    }
+
+    .hero-icons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      max-width: 450px;
+      margin: 16px 0 26px;
+    }
+
+    .hero-icon {
+      text-align: center;
+      font-size: 12px;
+      color: var(--navy);
+      font-weight: 800;
+    }
+
+    .hero-icon .circle {
+      width: 34px;
+      height: 34px;
+      margin: 0 auto 7px;
+      border: 2px solid var(--navy);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 17px;
+      color: var(--navy);
+    }
+
+    .hero-icon span {
+      display: block;
+      margin-top: 3px;
+      font-weight: 600;
+      color: #39495b;
+      font-size: 10px;
+    }
+
+    .hero .micro {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 12px;
+      padding-left: 28px;
+    }
+
+    .hero-media {
+      position: relative;
+      overflow: hidden;
+      min-height: 560px;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      min-height: 560px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-card {
+      position: absolute;
+      right: 34px;
+      bottom: 42px;
+      width: 215px;
+      min-height: 88px;
+      background: rgba(255,255,255,0.92);
+      border-radius: 14px;
+      padding: 18px 18px;
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 11px;
+      align-items: center;
+      color: var(--navy);
+      font-size: 14px;
+      line-height: 1.25;
+      font-weight: 900;
+      box-shadow: var(--shadow);
+    }
+
+    .heart {
+      width: 34px;
+      height: 34px;
+      border: 2px solid var(--navy);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+    }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: #fffdf9;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .benefit {
+      padding: 28px 42px;
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 17px;
+      align-items: center;
+      border-right: 1px solid var(--line);
+    }
+
+    .benefit:last-child { border-right: 0; }
+
+    .benefit .big-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #fff;
+      display: grid;
+      place-items: center;
+      color: var(--navy);
+      font-size: 25px;
+      box-shadow: 0 2px 8px rgba(7,27,51,0.07);
+    }
+
+    .benefit h3 {
+      margin: 0 0 5px;
+      font-size: 15px;
+      color: var(--navy);
+      font-weight: 900;
+    }
+
+    .benefit p {
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.35;
+      color: #405066;
+      font-weight: 600;
+    }
+
+    section {
+      padding: 46px 56px;
+      background: #fff;
+    }
+
+    section.alt { background: #fffaf4; }
+
+    .section-title {
+      text-align: center;
+      margin: 0 auto 30px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: 28px;
+      color: var(--navy);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+
+    .section-title p {
+      margin: 10px auto 0;
+      max-width: 620px;
+      color: var(--muted);
+      line-height: 1.45;
+      font-weight: 600;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 34px;
+      max-width: 1260px;
+      margin: 0 auto;
+    }
+
+    .step {
+      text-align: center;
+      color: var(--navy);
+    }
+
+    .step-img-wrap {
+      position: relative;
+      border-radius: 9px;
+      overflow: hidden;
+      height: 152px;
+      box-shadow: 0 8px 18px rgba(7,27,51,0.10);
+      background: #eee4d5;
+      margin-bottom: 18px;
+    }
+
+    .step-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .step-number {
+      position: absolute;
+      top: 9px;
+      left: 9px;
+      width: 31px;
+      height: 31px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 17px;
+      font-weight: 900;
+    }
+
+    .step h3 {
+      font-size: 15px;
+      margin: 0 0 7px;
+      font-weight: 900;
+    }
+
+    .step p {
+      margin: 0 auto;
+      max-width: 220px;
+      color: #4e5d70;
+      font-size: 12px;
+      line-height: 1.45;
+      font-weight: 600;
+    }
+
+    .details {
+      max-width: 1290px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 26px;
+    }
+
+    .panel {
+      background: #fff;
+      border-radius: 11px;
+      box-shadow: 0 10px 28px rgba(7,27,51,0.08);
+      overflow: hidden;
+      border: 1px solid #eee8df;
+    }
+
+    .panel img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .notice {
+      max-width: 1060px;
+      margin: 34px auto 0;
+      background: #fff6e7;
+      border: 1px solid #e8d0a8;
+      border-radius: 13px;
+      padding: 18px 22px;
+      color: #3e2d18;
+      font-size: 14px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .reviews { padding-top: 36px; }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .review {
+      background: #fffaf4;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(7,27,51,0.08);
+      padding: 22px;
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 18px;
+      align-items: center;
+      min-height: 132px;
+    }
+
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ead7bd, #f5eee4);
+      display: grid;
+      place-items: center;
+      font-size: 30px;
+    }
+
+    .stars { color: #f5b23f; font-size: 20px; letter-spacing: 1px; margin-bottom: 5px; }
+    .review p { margin: 0 0 7px; color: #33445a; font-size: 12px; line-height: 1.35; font-weight: 700; }
+    .review strong { font-size: 12px; color: var(--navy); }
+
+    .waitlist {
+      background: var(--navy);
+      color: #fff;
+      padding: 32px 58px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .wait-left {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 18px;
+      align-items: center;
+      max-width: 620px;
+      justify-self: center;
+    }
+
+    .mail-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      display: grid;
+      place-items: center;
+      font-size: 28px;
+      color: var(--gold);
+    }
+
+    .waitlist h2 {
+      margin: 0 0 5px;
+      font-size: 27px;
+      letter-spacing: -0.03em;
+    }
+
+    .waitlist p {
+      margin: 0;
+      color: #d7e1ec;
+      font-size: 14px;
+    }
+
+    .wait-form {
+      display: flex;
+      gap: 12px;
+      justify-self: center;
+      width: min(520px, 100%);
+    }
+
+    .wait-form input {
+      flex: 1;
+      border: 0;
+      border-radius: 8px;
+      padding: 16px 18px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    footer {
+      background: #06172c;
+      color: #cad5e3;
+      padding: 22px 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 26px;
+    }
+
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-copy { padding: 52px 28px 36px; }
+      .hero-media { min-height: 430px; }
+      .hero-media img { min-height: 430px; }
+      .benefits { grid-template-columns: 1fr 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .details { grid-template-columns: 1fr; }
+      .review-grid { grid-template-columns: 1fr; }
+      .waitlist { grid-template-columns: 1fr; }
+      .wait-left { justify-self: start; }
+      .wait-form { justify-self: start; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 620px) {
+      .nav { padding: 0 20px; }
+      .logo { font-size: 23px; }
+      .btn.small { display: none; }
+      .hero h1 { font-size: 42px; }
+      .hero-icons { grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+      .benefits { grid-template-columns: 1fr; }
+      .benefit { border-right: 0; border-bottom: 1px solid var(--line); }
+      section { padding: 36px 18px; }
+      .steps { grid-template-columns: 1fr; }
+      .waitlist { padding: 28px 20px; }
+      .wait-form { flex-direction: column; }
+      .footer-links { flex-wrap: wrap; gap: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="nav">
+      <a class="logo" href="#">RockNRollie<sup>™</sup></a>
+      <nav class="nav-links">
+        <a href="#how">How It Works</a>
+        <a href="#features">Features</a>
+        <a href="#fit">Fits Most Strollers</a>
+        <a href="#details">Product Details</a>
+        <a href="#safety">Safety Note</a>
+      </nav>
+      <a class="btn small" href="#waitlist">Join the Waitlist</a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">For supervised indoor stroller rocking</div>
+          <h1>A Gentle Bump for Indoor Rocking</h1>
+          <p>RockNRollie is a reusable silicone band designed to add a subtle, rhythmic bump while rocking a stroller back and forth indoors.</p>
+          <div class="hero-icons">
+            <div class="hero-icon"><div class="circle">⌁</div>Gentle Motion<span>For back-and-forth rocking</span></div>
+            <div class="hero-icon"><div class="circle">♢</div>Soft Silicone<span>BPA-free, non-toxic</span></div>
+            <div class="hero-icon"><div class="circle">✓</div>Universal Fit<span>Fits most stroller wheels</span></div>
+          </div>
+          <a class="btn" href="#waitlist">Join the Waitlist</a>
+          <div class="micro">Concept validation. No payment required.</div>
+        </div>
+        <div class="hero-media">
+          <img src="image1.png" alt="RockNRollie attached to stroller wheel indoors">
+          <div class="hero-card"><div class="heart">♡</div><div>Designed for supervised indoor use</div></div>
+        </div>
+      </section>
+
+      <div class="benefits" id="features">
+        <div class="benefit"><div class="big-icon">⌁</div><div><h3>Gentle Indoor Motion</h3><p>Adds a subtle bump during back-and-forth stroller rocking.</p></div></div>
+        <div class="benefit"><div class="big-icon">♢</div><div><h3>Safe & Non-Toxic</h3><p>Designed as 100% food grade silicone. BPA free, non-toxic and odorless.</p></div></div>
+        <div class="benefit"><div class="big-icon">↻</div><div><h3>Reusable & Durable</h3><p>Easy to remove and use again when needed indoors.</p></div></div>
+        <div class="benefit"><div class="big-icon">✓</div><div><h3>Fits Most Wheels</h3><p>Designed to fit most stroller wheels with or without a rim channel.</p></div></div>
+      </div>
+
+      <section id="how">
+        <div class="section-title">
+          <h2>How It Works</h2>
+          <p>Attach the band to the stroller wheel, then rock the stroller gently back and forth on a flat indoor surface.</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <div class="step-img-wrap"><img src="image2.png" alt="Wrap RockNRollie around the stroller tire indoors"><div class="step-number">1</div></div>
+            <h3>Wrap around the tire</h3>
+            <p>Position the band around the tire so the raised bump sits on the tread.</p>
+          </article>
+          <article class="step">
+            <div class="step-img-wrap"><img src="image3.png" alt="Pull RockNRollie through to tighten indoors"><div class="step-number">2</div></div>
+            <h3>Pull through to tighten</h3>
+            <p>Pull the tail through the locking slot and tighten to the desired fit.</p>
+          </article>
+          <article class="step">
+            <div class="step-img-wrap"><img src="image4.png" alt="Tuck the RockNRollie tail indoors"><div class="step-number">3</div></div>
+            <h3>Tuck the tail</h3>
+            <p>Slide the tail into the keeper loop for a secure hold.</p>
+          </article>
+          <article class="step">
+            <div class="step-img-wrap"><img src="image5.png" alt="RockNRollie installed for indoor rocking"><div class="step-number">4</div></div>
+            <h3>Rock gently indoors</h3>
+            <p>Use only while supervised, on a flat indoor surface, with gentle back-and-forth motion.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="alt" id="details">
+        <div class="details">
+          <article class="panel">
+            <img src="image6.png" alt="RockNRollie product details for indoor stroller rocking">
+          </article>
+          <article class="panel" id="fit">
+            <img src="image7.png" alt="RockNRollie fits most stroller wheels">
+          </article>
+        </div>
+        <div class="notice" id="safety">
+          Safety note: RockNRollie is intended for supervised indoor rocking only. Do not use for outdoor walking, running, roads, slopes, stairs, kerbs, escalators, uneven ground, or unsupervised sleep. Remove before taking the stroller outside.
+        </div>
+      </section>
+
+      <section class="reviews">
+        <div class="section-title"><h2>Early Parent Feedback</h2></div>
+        <div class="review-grid">
+          <article class="review"><div class="avatar">👩‍🍼</div><div><div class="stars">★★★★★</div><p>“The indoor rocking motion is exactly the kind of thing I’ve wished existed for evening settling.”</p><strong>– Early tester</strong></div></article>
+          <article class="review"><div class="avatar">👨‍🍼</div><div><div class="stars">★★★★★</div><p>“Simple idea. I’d want it for those nights when the buggy needs a bit more motion indoors.”</p><strong>– Parent feedback</strong></div></article>
+          <article class="review"><div class="avatar">👩‍👧</div><div><div class="stars">★★★★★</div><p>“Clear use case: supervised indoor rocking, not walking outside. That makes more sense.”</p><strong>– Concept feedback</strong></div></article>
+        </div>
+      </section>
+
+      <section class="waitlist" id="waitlist">
+        <div class="wait-left"><div class="mail-icon">✉</div><div><h2>Be the first to know.</h2><p>Join the waitlist for prototype updates and first-batch availability.</p></div></div>
+        <form class="wait-form" action="https://formspree.io/f/meedejkn" method="POST">
+          <input type="email" name="email" placeholder="Enter your email address" required>
+          <input type="hidden" name="_subject" value="Waiting list">
+          <input type="hidden" name="source" value="RockNRollie landing page">
+          <button class="btn gold" type="submit">Join the Waitlist</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <div class="logo">RockNRollie<sup>™</sup></div>
+      <div class="footer-links"><a href="#safety">Safety Note</a><a href="mailto:hello@rocknrollie.com">Contact Us</a><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+    </footer>
+  </div>
+</body>
+</html>
